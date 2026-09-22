@@ -20,5 +20,7 @@
 
         <!-- Cria/Atualiza as tabelas automaticamente no banco -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <mapping class="com.mycompany.hibernatesalaaula.entities.Bombeiro" />
     </session-factory>
 </hibernate-configuration>
