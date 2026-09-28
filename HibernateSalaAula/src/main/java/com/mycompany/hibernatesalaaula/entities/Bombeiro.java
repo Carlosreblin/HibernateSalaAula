@@ -5,16 +5,28 @@
 package com.mycompany.hibernatesalaaula.entities;
 
 import java.time.LocalDate;
-
+import jakarta.persistance.Entity;
+import jakarta.persistance.Id;
+import jakarta.persistance.GeneratedValue;
+import jakarta.persistance.GenerationType;
+import jakarta.persistance.Column;
 /**
  *
  * @author aluno
  */
+@Entity
+@Table(name = "Bombeiro")
 public class Bombeiro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "bom_cpf", unique = true, updatable = false, length = 11)
     private String cpf;
+    @Column(name = "bom_data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-    private String nomeCompleto;
+    @Column(name = "bom_nome_completo", nullable = false, length = 45)
+    private String nome;
+    @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
     
     public Bombeiro() {
@@ -45,12 +57,12 @@ public class Bombeiro {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getNomeGuerra() {
@@ -64,10 +76,15 @@ public class Bombeiro {
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Bombeiro) {
-            return (((Bombeiro) obj).getId().equals(this.id) && ((Bombeiro) obj).getCpf().equals(this.cpf));
+            Bombeiro aux = (Bombeiro) obj;
+            return (aux.getCpf() == null || aux.getId() == null) ? false : (aux.getCpf().equals(this.cpf) && aux.getId().equals(this.id));
         } else {
             return false;
         }
     }
     
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
