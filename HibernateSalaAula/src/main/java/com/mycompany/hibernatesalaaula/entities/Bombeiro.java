@@ -5,11 +5,12 @@
 package com.mycompany.hibernatesalaaula.entities;
 
 import java.time.LocalDate;
-import jakarta.persistance.Entity;
-import jakarta.persistance.Id;
-import jakarta.persistance.GeneratedValue;
-import jakarta.persistance.GenerationType;
-import jakarta.persistance.Column;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 /**
  *
  * @author aluno
@@ -19,6 +20,7 @@ import jakarta.persistance.Column;
 public class Bombeiro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bom_id")
     private Integer id;
     @Column(name = "bom_cpf", unique = true, updatable = false, length = 11)
     private String cpf;

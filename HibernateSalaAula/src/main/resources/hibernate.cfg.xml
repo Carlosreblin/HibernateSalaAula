@@ -23,5 +23,9 @@
         
         <mapping class="com.mycompany.hibernatesalaaula.entities.Bombeiro" />
         <mapping class="com.mycompany.hibernatesalaaula.entities.Viatura" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.StatusViatura" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.AutoTanque" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.UnidadeResgate" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.AutoEscada" />
     </session-factory>
 </hibernate-configuration>

@@ -21,6 +21,7 @@ import java.time.LocalDate;
 public class Viatura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "via_id")
     private Integer id;
     @Column(name = "via_placa", length = 7, unique = true, nullable = false)
     private String placa;
