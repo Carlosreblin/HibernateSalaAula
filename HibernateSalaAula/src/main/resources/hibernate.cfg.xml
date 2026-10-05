@@ -22,5 +22,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         
         <mapping class="com.mycompany.hibernatesalaaula.entities.Bombeiro" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.Viatura" />
     </session-factory>
 </hibernate-configuration>
