@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 /**
  *
- * @author aluno
+ * @author Carlos
  */
 @Entity
 @Table(name = "UnidadeResgate")

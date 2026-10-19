@@ -27,5 +27,8 @@
         <mapping class="com.mycompany.hibernatesalaaula.entities.AutoTanque" />
         <mapping class="com.mycompany.hibernatesalaaula.entities.UnidadeResgate" />
         <mapping class="com.mycompany.hibernatesalaaula.entities.AutoEscada" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.Usuario" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.TelefoneContato" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.Patente" />
     </session-factory>
 </hibernate-configuration>
