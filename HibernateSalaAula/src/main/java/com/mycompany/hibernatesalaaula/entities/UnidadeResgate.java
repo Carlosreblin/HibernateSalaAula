@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -24,6 +26,9 @@ public class UnidadeResgate {
     private Integer id;
     @Column(name = "unr_capacidade")
     private Integer capacidade;
+    @OneToOne
+    @JoinColumn(name = "via_id")
+    private Viatura viatura;
 
     public UnidadeResgate() {
     }
@@ -42,6 +47,14 @@ public class UnidadeResgate {
 
     public void setCapacidade(Integer capacidade) {
         this.capacidade = capacidade;
+    }
+
+    public Viatura getViatura() {
+        return viatura;
+    }
+
+    public void setViatura(Viatura viatura) {
+        this.viatura = viatura;
     }
     
     @Override

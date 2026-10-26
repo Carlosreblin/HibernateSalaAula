@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -38,6 +39,12 @@ public class Bombeiro {
     private String nome;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
+    @ManyToOne
+    @JoinColumn(name = "esp_id")
+    private Especialidade especialidade;
+    @ManyToOne
+    @JoinColumn(name = "stb_id")
+    private StatusBombeiro status;
     @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
     @OneToMany(mappedBy = "bombeiro", fetch = FetchType.LAZY)
@@ -92,6 +99,22 @@ public class Bombeiro {
 
     public void setNomeGuerra(String nomeGuerra) {
         this.nomeGuerra = nomeGuerra;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public StatusBombeiro getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusBombeiro status) {
+        this.status = status;
     }
 
     public Usuario getUsuario() {

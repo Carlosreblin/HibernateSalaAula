@@ -9,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
 /**
  *
@@ -26,6 +28,8 @@ public class StatusViatura {
     private String descricao;
     @Column(name = "stv_sigla", length = 5, unique = true, nullable = false)
     private String sigla;
+    @OneToMany(mappedBy = "status")
+    private List<Viatura> viatura;
     
     public StatusViatura() {
         
@@ -53,6 +57,14 @@ public class StatusViatura {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    public List<Viatura> getViatura() {
+        return viatura;
+    }
+
+    public void setViatura(List<Viatura> viatura) {
+        this.viatura = viatura;
     }
     
     @Override

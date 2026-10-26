@@ -30,5 +30,7 @@
         <mapping class="com.mycompany.hibernatesalaaula.entities.Usuario" />
         <mapping class="com.mycompany.hibernatesalaaula.entities.TelefoneContato" />
         <mapping class="com.mycompany.hibernatesalaaula.entities.Patente" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.Especialidade" />
+        <mapping class="com.mycompany.hibernatesalaaula.entities.StatusBombeiro" />
     </session-factory>
 </hibernate-configuration>

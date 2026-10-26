@@ -4,10 +4,13 @@
  */
 package com.mycompany.hibernatesalaaula.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -20,7 +23,11 @@ public class AutoEscada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "aue_altura_max")
     private Integer alturaMax;
+    @OneToOne
+    @JoinColumn(name = "via_id")
+    private Viatura viatura;
 
     public AutoEscada() {
     }
@@ -39,6 +46,14 @@ public class AutoEscada {
 
     public void setAlturaMax(Integer alturaMax) {
         this.alturaMax = alturaMax;
+    }
+
+    public Viatura getViatura() {
+        return viatura;
+    }
+
+    public void setViatura(Viatura viatura) {
+        this.viatura = viatura;
     }
     
     @Override

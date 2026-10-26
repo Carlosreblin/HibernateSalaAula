@@ -9,6 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
@@ -31,6 +34,15 @@ public class Viatura {
     private LocalDate ultimaRevisao;
     @Column(name = "via_km", nullable = false)
     private Integer km;
+    @ManyToOne
+    @JoinColumn(name = "stv_id")
+    private StatusViatura status;
+    @OneToOne(mappedBy = "viatura")
+    private AutoTanque autoTanque;
+    @OneToOne(mappedBy = "viatura")
+    private UnidadeResgate unidadeResgate;
+    @OneToOne(mappedBy = "viatura")
+    private AutoEscada autoEscada;
     
     public Viatura() {
         
@@ -74,6 +86,38 @@ public class Viatura {
 
     public void setKm(Integer km) {
         this.km = km;
+    }
+
+    public StatusViatura getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusViatura status) {
+        this.status = status;
+    }
+
+    public AutoTanque getAutoTanque() {
+        return autoTanque;
+    }
+
+    public void setAutoTanque(AutoTanque autoTanque) {
+        this.autoTanque = autoTanque;
+    }
+
+    public UnidadeResgate getUnidadeResgate() {
+        return unidadeResgate;
+    }
+
+    public void setUnidadeResgate(UnidadeResgate unidadeResgate) {
+        this.unidadeResgate = unidadeResgate;
+    }
+
+    public AutoEscada getAutoEscada() {
+        return autoEscada;
+    }
+
+    public void setAutoEscada(AutoEscada autoEscada) {
+        this.autoEscada = autoEscada;
     }
     
     @Override
